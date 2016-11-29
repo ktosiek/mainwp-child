@@ -875,6 +875,9 @@ class MainWP_Child {
 	}
 
 	function update_htaccess( $hard = false ) {
+		if ( !got_mod_rewrite() ) {
+			return;
+		}
 		if ( !$hard && defined( 'DOING_CRON' ) && DOING_CRON ) {
 			return;
 		}
